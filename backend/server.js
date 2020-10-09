@@ -1,10 +1,13 @@
 import express from "express";
 import dotenv from "dotenv";
+import conectaDB from "./config/db.js";
 import products from "./data/products.js";
 
 dotenv.config();
 const PUERTO = process.env.PUERTO;
 const MODO = process.env.NODE_ENV;
+
+conectaDB();
 
 const app = express();
 
