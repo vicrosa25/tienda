@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import colors from "colors";
 import conectaDB from "./config/db.js";
 import products from "./data/products.js";
 
@@ -26,5 +27,7 @@ app.get("/api/products/:id", (req, res) => {
 
 app.listen(
   PUERTO,
-  console.log(`Servidor funcionando en modo ${MODO} sobre el puerto ${PUERTO}`)
+  console.log(
+    `Servidor funcionando en modo ${MODO} sobre el puerto ${PUERTO}`.yellow.bold
+  )
 );
