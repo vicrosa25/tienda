@@ -1,5 +1,10 @@
 const express = require("express");
+const dotenv = require("dotenv");
 const products = require("./data/products");
+
+dotenv.config();
+PUERTO = process.env.PUERTO;
+MODO = process.env.NODE_ENV;
 
 const app = express();
 
@@ -16,4 +21,7 @@ app.get("/api/products/:id", (req, res) => {
   res.json(product);
 });
 
-app.listen(5000, console.log("Server running on port 5000"));
+app.listen(
+  PUERTO,
+  console.log(`Servidor funcionando en modo ${MODO} sobre el puerto ${PUERTO}`)
+);
