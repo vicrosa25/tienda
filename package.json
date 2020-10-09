@@ -4,6 +4,7 @@
   "main": "server.js",
   "repository": "git@github.com:vicrosa25/tienda.git",
   "author": "Victor Rosa <vicrosser@alum.us.es>",
+  "type": "module",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^8.2.0",
