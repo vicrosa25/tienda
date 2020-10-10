@@ -1,8 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
 import colors from "colors";
+
 import conectaDB from "./config/db.js";
 import productoRoutes from "./routes/productoRoutes.js";
+import { notFound, errorHandler } from "./midleware/errores.js";
 
 dotenv.config();
 const PUERTO = process.env.PUERTO;
@@ -16,7 +18,12 @@ app.get("/", (req, res) => {
   res.send("API is running!");
 });
 
+// Rutas
 app.use("/api/productos", productoRoutes);
+
+// Errores
+app.use(notFound);
+app.use(errorHandler);
 
 app.listen(
   PUERTO,
