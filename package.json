@@ -16,7 +16,9 @@
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
     "client": "yarn --cwd ./frontend/ start",
-    "dev": "concurrently \"yarn server\" \"yarn client\""
+    "dev": "concurrently \"yarn server\" \"yarn client\"",
+    "importar:datos": "node backend/populateDB",
+    "borrar:datos": "node backend/populateDB -d"
   },
   "devDependencies": {
     "colors": "^1.4.0",

@@ -73,6 +73,6 @@ const ordenCompraEsquema = mongoose.Schema(
   }
 );
 
-const OrdenCompra = mongoose.model("OrdenCompra", OrdenCompraEsquema);
+const OrdenCompra = mongoose.model("OrdenCompra", ordenCompraEsquema);
 
 export default OrdenCompra;

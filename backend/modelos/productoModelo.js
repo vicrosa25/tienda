@@ -27,7 +27,7 @@ const productoEsquema = mongoose.Schema(
       required: true,
       ref: "Usuario",
     },
-    name: {
+    nombre: {
       type: String,
       required: true,
     },
@@ -49,7 +49,7 @@ const productoEsquema = mongoose.Schema(
       required: true,
       default: 0,
     },
-    numeroComentarios: {
+    numeroValoraciones: {
       type: Number,
       required: true,
       default: 0,

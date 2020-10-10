@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import colors from "colors";
 import conectaDB from "./config/db.js";
-import products from "./data/products.js";
+import productos from "./data/productos.js";
 
 dotenv.config();
 const PUERTO = process.env.PUERTO;
@@ -21,8 +21,8 @@ app.get("/api/products", (req, res) => {
 });
 
 app.get("/api/products/:id", (req, res) => {
-  const product = products.find((p) => p._id === req.params.id);
-  res.json(product);
+  const producto = productos.find((p) => p._id === req.params.id);
+  res.json(producto);
 });
 
 app.listen(

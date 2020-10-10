@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const usuarioEsquema = mongoose.Schema(
   {
-    name: {
+    nombre: {
       type: String,
       required: true,
     },
@@ -15,7 +15,7 @@ const usuarioEsquema = mongoose.Schema(
       type: String,
       required: true,
     },
-    isAdmin: {
+    esAdmin: {
       type: Boolean,
       required: true,
       default: false,
@@ -26,6 +26,6 @@ const usuarioEsquema = mongoose.Schema(
   }
 );
 
-const Ususario = mongoose.model("User", usuarioEsquema);
+const Usuario = mongoose.model("Usuario", usuarioEsquema);
 
 export default Usuario;
