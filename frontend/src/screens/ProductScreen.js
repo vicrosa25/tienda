@@ -10,7 +10,7 @@ const ProductScreen = ({ match }) => {
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const { data } = await axios.get(`/api/products/${id}`);
+      const { data } = await axios.get(`/api/productos/${id}`);
       setProduct(data);
     };
 
@@ -24,21 +24,21 @@ const ProductScreen = ({ match }) => {
       </Link>
       <Row>
         <Col md={6}>
-          <Image src={product.image} alt={product.name} fluid />
+          <Image src={product.imagen} alt={product.nombre} fluid />
         </Col>
         <Col md={3}>
           <ListGroup variant="flush">
             <ListGroup.Item>
-              <h3>{product.name}</h3>
+              <h3>{product.nombre}</h3>
             </ListGroup.Item>
             <ListGroup.Item>
               <Rating
-                value={product.rating}
-                text={` ${product.numReviews} reviews`}
+                value={product.valoracionMedia}
+                text={` ${product.numeroValoraciones} reviews`}
               />
             </ListGroup.Item>
-            <ListGroup.Item>${product.price}</ListGroup.Item>
-            <ListGroup.Item>{product.description}</ListGroup.Item>
+            <ListGroup.Item>${product.precio}</ListGroup.Item>
+            <ListGroup.Item>{product.descripcion}</ListGroup.Item>
           </ListGroup>
         </Col>
         <Col md={3}>
@@ -48,7 +48,7 @@ const ProductScreen = ({ match }) => {
                 <Row>
                   <Col>Price</Col>
                   <Col>
-                    <strong>{product.price}</strong>
+                    <strong>{product.precio}</strong>
                   </Col>
                 </Row>
               </ListGroup.Item>
@@ -59,7 +59,7 @@ const ProductScreen = ({ match }) => {
                 <Row>
                   <Col>Status</Col>
                   <Col>
-                    {product.countInStock > 0 ? "In Stock" : "Out of Stock"}
+                    {product.numEnAlmacen > 0 ? "In Stock" : "Out of Stock"}
                   </Col>
                 </Row>
               </ListGroup.Item>
@@ -67,7 +67,7 @@ const ProductScreen = ({ match }) => {
                 <Button
                   className="btn-block"
                   type="button"
-                  disabled={product.countInStock === 0}
+                  disabled={product.numEnAlmacen === 0}
                 >
                   Add to Cart
                 </Button>

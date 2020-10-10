@@ -8,7 +8,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const { data } = await axios.get("/api/products");
+      const { data } = await axios.get("/api/productos");
       setProducts(data);
     };
 
