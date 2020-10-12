@@ -1,22 +1,37 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
+import {
+  Row,
+  Col,
+  Image,
+  ListGroup,
+  Card,
+  Button,
+  Form,
+} from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 
 import Rating from "../components/Rating";
 import Loader from "../components/Loader";
 import Mensaje from "../components/Mensaje";
 import { detalleProducto } from "../actions/productoActions";
 
-const ProductScreen = ({ match }) => {
+const ProductScreen = ({ history, match }) => {
+  // Hooks
+  const [t] = useTranslation();
+  const [cantidad, setCantidad] = useState(1);
   const dispatch = useDispatch();
-
   const productoDetalle = useSelector((state) => state.productoDetalle);
   const { loading, error, producto } = productoDetalle;
 
   useEffect(() => {
     dispatch(detalleProducto(match.params.id));
   }, [dispatch, match]);
+
+  const addCestaHandler = () => {
+    history.push(`/cesta/${match.params.id}?cantidad=${cantidad}`);
+  };
 
   return (
     <>
@@ -69,8 +84,33 @@ const ProductScreen = ({ match }) => {
                     </Col>
                   </Row>
                 </ListGroup.Item>
+
+                {producto.numEnAlmacen > 0 && (
+                  <ListGroup.Item>
+                    <Row>
+                      <Col>{t("productoScreen.quantity")}</Col>
+                      <Col>
+                        <Form.Control
+                          as="select"
+                          value={cantidad}
+                          onChange={(e) => setCantidad(e.target.value)}
+                        >
+                          {[...Array(producto.numEnAlmacen).keys()].map(
+                            (num) => (
+                              <option key={num + 1} value={num + 1}>
+                                {num + 1}
+                              </option>
+                            )
+                          )}
+                        </Form.Control>
+                      </Col>
+                    </Row>
+                  </ListGroup.Item>
+                )}
+
                 <ListGroup.Item>
                   <Button
+                    onClick={addCestaHandler}
                     className="btn-block"
                     type="button"
                     disabled={producto.numEnAlmacen === 0}

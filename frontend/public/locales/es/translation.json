@@ -1,5 +1,9 @@
 {
-  "footer": {
+  "header": {
     "cart": "cesta"
+  },
+
+  "productoScreen": {
+    "quantity": "cantidad"
   }
 }

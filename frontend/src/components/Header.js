@@ -15,9 +15,9 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
-              <LinkContainer to="/cart">
+              <LinkContainer to="/cesta">
                 <Nav.Link>
-                  <i className="fas fa-shopping-cart"></i> {t("footer.cart")}
+                  <i className="fas fa-shopping-cart"></i> {t("header.cart")}
                 </Nav.Link>
               </LinkContainer>
               <LinkContainer to="/login">

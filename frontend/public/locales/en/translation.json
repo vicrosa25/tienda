@@ -1,5 +1,9 @@
 {
-  "footer": {
-    "cart": "cesta"
+  "header": {
+    "cart": "cart"
+  },
+
+  "productoScreen": {
+    "quantity": "perkins"
   }
 }
