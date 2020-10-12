@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Row, Col } from "react-bootstrap";
-import Product from "../components/Product";
+import Producto from "../components/Producto";
 import { listaProductos } from "../actions/productoActions";
 import Loader from "../components/Loader";
 import Mensaje from "../components/Mensaje";
@@ -28,7 +28,7 @@ const Home = () => {
         <Row>
           {productos.map((producto) => (
             <Col key={producto._id} sm={12} md={6} lg={4} xl={3}>
-              <Product product={producto} />
+              <Producto producto={producto} />
             </Col>
           ))}
         </Row>

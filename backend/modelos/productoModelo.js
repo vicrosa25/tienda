@@ -43,7 +43,7 @@ const productoEsquema = mongoose.Schema(
       type: String,
       required: true,
     },
-    valoracion: [valoracionEsquema],
+    valoraciones: [valoracionEsquema],
     valoracionMedia: {
       type: Number,
       required: true,
