@@ -5,5 +5,12 @@
 
   "productoScreen": {
     "quantity": "cantidad"
+  },
+  "cartScreen": {
+    "cart": "Cesta",
+    "message": "Tu cesta está vacía",
+    "goBack": "Volver",
+    "items": "Productos",
+    "checkout": "Tramitar pedido"
   }
 }

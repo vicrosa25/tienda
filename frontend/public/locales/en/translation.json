@@ -5,5 +5,12 @@
 
   "productoScreen": {
     "quantity": "perkins"
+  },
+  "cartScreen": {
+    "cart": "Cart",
+    "message": "Your cart is empty",
+    "goBack": "Go Back",
+    "items": "Items",
+    "checkout": "Checkout"
   }
 }

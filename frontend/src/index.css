@@ -5,3 +5,13 @@ main {
 h3 {
   padding: 1rem 0;
 }
+
+h1 {
+  font-size: 1.6rem;
+  padding: 1rem 0;
+}
+
+h2 {
+  font-size: 1.1rem;
+  padding: 0.2rem 0;
+}
