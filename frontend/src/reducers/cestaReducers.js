@@ -1,4 +1,7 @@
-import { CESTA_AGREGAR_ITEM } from "../constantes/cestaConstantes";
+import {
+  CESTA_AGREGAR_ITEM,
+  CESTA_ELIMINAR_ITEM,
+} from "../constantes/cestaConstantes";
 
 export const cestaReducer = (state = { cestaItems: [] }, action) => {
   switch (action.type) {
@@ -20,6 +23,14 @@ export const cestaReducer = (state = { cestaItems: [] }, action) => {
           cestaItems: [...state.cestaItems, item],
         };
       }
+
+    case CESTA_ELIMINAR_ITEM:
+      return {
+        ...state,
+        cestaItems: state.cestaItems.filter(
+          (producto) => producto.id !== action.payload
+        ),
+      };
 
     default:
       return state;

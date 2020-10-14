@@ -3,8 +3,13 @@
     "cart": "cart"
   },
 
-  "productoScreen": {
-    "quantity": "perkins"
+  "productScreen": {
+    "quantity": "Quantity",
+    "price": "Price",
+    "status": "Status",
+    "addItem": "Add to Cart",
+    "inStock": "In Stock",
+    "outStock": "Out of Stock"
   },
   "cartScreen": {
     "cart": "Cart",

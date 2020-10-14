@@ -36,7 +36,7 @@ const ProductScreen = ({ history, match }) => {
   return (
     <>
       <Link to="/" className="btn btn-light my-3">
-        Go Back
+        {t("cartScreen.goBack")}
       </Link>
       {loading ? (
         <Loader />
@@ -58,7 +58,7 @@ const ProductScreen = ({ history, match }) => {
                   text={` ${producto.numeroValoraciones} reviews`}
                 />
               </ListGroup.Item>
-              <ListGroup.Item>${producto.precio}</ListGroup.Item>
+              <ListGroup.Item>{producto.precio}€</ListGroup.Item>
               <ListGroup.Item>{producto.descripcion}</ListGroup.Item>
             </ListGroup>
           </Col>
@@ -67,10 +67,8 @@ const ProductScreen = ({ history, match }) => {
               <ListGroup variant="flush">
                 <ListGroup.Item>
                   <Row>
-                    <Col>Price</Col>
-                    <Col>
-                      <strong>{producto.precio}</strong>
-                    </Col>
+                    <Col>{t("productScreen.price")}</Col>
+                    <Col>{producto.precio}€</Col>
                   </Row>
                 </ListGroup.Item>
               </ListGroup>
@@ -78,9 +76,11 @@ const ProductScreen = ({ history, match }) => {
               <ListGroup variant="flush">
                 <ListGroup.Item>
                   <Row>
-                    <Col>Status</Col>
+                    <Col>{t("productScreen.status")}</Col>
                     <Col>
-                      {producto.numEnAlmacen > 0 ? "In Stock" : "Out of Stock"}
+                      {producto.numEnAlmacen > 0
+                        ? t("productScreen.inStock")
+                        : t("productScreen.outStock")}
                     </Col>
                   </Row>
                 </ListGroup.Item>
@@ -88,7 +88,7 @@ const ProductScreen = ({ history, match }) => {
                 {producto.numEnAlmacen > 0 && (
                   <ListGroup.Item>
                     <Row>
-                      <Col>{t("productoScreen.quantity")}</Col>
+                      <Col>{t("productScreen.quantity")}</Col>
                       <Col>
                         <Form.Control
                           as="select"
@@ -115,7 +115,7 @@ const ProductScreen = ({ history, match }) => {
                     type="button"
                     disabled={producto.numEnAlmacen === 0}
                   >
-                    Add to Cart
+                    {t("productScreen.addItem")}
                   </Button>
                 </ListGroup.Item>
               </ListGroup>

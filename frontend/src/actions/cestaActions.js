@@ -1,5 +1,8 @@
 import axios from "axios";
-import { CESTA_AGREGAR_ITEM } from "../constantes/cestaConstantes";
+import {
+  CESTA_AGREGAR_ITEM,
+  CESTA_ELIMINAR_ITEM,
+} from "../constantes/cestaConstantes";
 
 export const agregarItem = (id, cantidad) => async (dispatch, getState) => {
   const { data } = await axios.get(`/api/productos/${id}`);
@@ -14,6 +17,18 @@ export const agregarItem = (id, cantidad) => async (dispatch, getState) => {
       numEnAlmacen: data.numEnAlmacen,
       cantidad,
     },
+  });
+
+  localStorage.setItem(
+    "cestaItems",
+    JSON.stringify(getState().cesta.cestaItems)
+  );
+};
+
+export const eliminarItem = (id) => (dispatch, getState) => {
+  dispatch({
+    type: CESTA_ELIMINAR_ITEM,
+    payload: id,
   });
 
   localStorage.setItem(

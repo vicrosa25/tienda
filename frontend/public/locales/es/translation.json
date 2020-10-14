@@ -3,8 +3,13 @@
     "cart": "cesta"
   },
 
-  "productoScreen": {
-    "quantity": "cantidad"
+  "productScreen": {
+    "quantity": "Cantidad",
+    "price": "Precio",
+    "status": "Estado",
+    "addItem": "Añadir a la cesta",
+    "inStock": "En Stock",
+    "outStock": "Fuera de Stock"
   },
   "cartScreen": {
     "cart": "Cesta",

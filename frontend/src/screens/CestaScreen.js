@@ -13,7 +13,7 @@ import {
 import { Link } from "react-router-dom";
 
 import Mensaje from "../components/Mensaje";
-import { agregarItem } from "../actions/cestaActions";
+import { agregarItem, eliminarItem } from "../actions/cestaActions";
 
 const CestaScreen = ({ match, location, history }) => {
   const productoId = match.params.id;
@@ -31,8 +31,8 @@ const CestaScreen = ({ match, location, history }) => {
   }, [dispatch, productoId, cantidad]);
 
   // Handlers
-  const borraDeLaCestaHandler = (id) => {
-    console.log(`remove ${id}`);
+  const eliminarDeLaCestaHandler = (id) => {
+    dispatch(eliminarItem(id));
   };
 
   const pagarHandler = () => {
@@ -78,7 +78,7 @@ const CestaScreen = ({ match, location, history }) => {
                     <Button
                       type="button"
                       variant="light"
-                      onClick={() => borraDeLaCestaHandler(item.id)}
+                      onClick={() => eliminarDeLaCestaHandler(item.id)}
                     >
                       <i className="fas fa-trash"></i>
                     </Button>
