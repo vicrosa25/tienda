@@ -4,6 +4,7 @@ import colors from "colors";
 
 import conectaDB from "./config/db.js";
 import productoRoutes from "./routes/productoRoutes.js";
+import usuarioRoutes from "./routes/usuarioRoutes.js";
 import { notFound, errorHandler } from "./midleware/errores.js";
 
 dotenv.config();
@@ -14,12 +15,16 @@ conectaDB();
 
 const app = express();
 
+// Middleware
+app.use(express.json()); // Parsea el body del request a json
+
 app.get("/", (req, res) => {
   res.send("API is running!");
 });
 
 // Rutas
 app.use("/api/productos", productoRoutes);
+app.use("/api/usuarios", usuarioRoutes);
 
 // Errores
 app.use(notFound);
