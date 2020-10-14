@@ -14,7 +14,7 @@ const autorizaUsuario = asyncHandler(async (req, res) => {
       _id: usuario._id,
       nombre: usuario.nombre,
       email: usuario.email,
-      isAdmin: usuario.isAdmin,
+      esAdmin: usuario.esAdmin,
       token: generaToken(usuario._id),
     });
   } else {
@@ -23,4 +23,22 @@ const autorizaUsuario = asyncHandler(async (req, res) => {
   }
 });
 
-export { autorizaUsuario };
+// @desc    Retorna el perfil del usuario logeado
+// @route   GET /api/usuarios/perfil
+// @access  Privado
+const getPerfilUsuario = asyncHandler(async (req, res) => {
+  const usuario = await Usuario.findById(req.usuario._id);
+  if (usuario) {
+    res.json({
+      _id: usuario._id,
+      nombre: usuario.nombre,
+      email: usuario.email,
+      esAdmin: usuario.esAdmin,
+    });
+  } else {
+    res.status(404);
+    throw new Error("Usuario no encontrado");
+  }
+});
+
+export { autorizaUsuario, getPerfilUsuario };
