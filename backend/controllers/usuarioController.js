@@ -41,4 +41,37 @@ const getPerfilUsuario = asyncHandler(async (req, res) => {
   }
 });
 
-export { autorizaUsuario, getPerfilUsuario };
+// @desc    Registra un usuario
+// @route   POST /api/usuarios
+// @access  Público
+const registraUsuario = asyncHandler(async (req, res) => {
+  const { nombre, email, password } = req.body;
+
+  const estaRegistrado = await Usuario.findOne({ email });
+
+  if (estaRegistrado) {
+    res.status(400);
+    throw new Error("Usuario ya registrado");
+  }
+
+  const usuario = await Usuario.create({
+    nombre,
+    email,
+    password,
+  });
+
+  if (usuario) {
+    res.status(201).json({
+      _id: usuario._id,
+      nombre: usuario.nombre,
+      email: usuario.email,
+      esAdmin: usuario.esAdmin,
+      token: generaToken(usuario._id),
+    });
+  } else {
+    res.status(401);
+    throw new Error("Datos de usuario incorrectos");
+  }
+});
+
+export { autorizaUsuario, getPerfilUsuario, registraUsuario };
