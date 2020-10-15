@@ -19,14 +19,14 @@ export const login = (email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      "/app/usuarios/login",
+      "/api/usuarios/login",
       { email, password },
       config
     );
 
     dispatch({
       type: USUARIO_LOGIN_EXITO,
-      pyaload: data,
+      payload: data,
     });
 
     localStorage.setItem("usuarioInfo", JSON.stringify(data));

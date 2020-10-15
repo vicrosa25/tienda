@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Home from "./screens/Home";
 import ProductScreen from "./screens/ProductScreen";
 import CestaScreen from "./screens/CestaScreen";
+import LoginScreen from "./screens/LoginScreen";
 
 import "./App.css";
 
@@ -16,9 +17,10 @@ function App() {
       <Header />
       <main className="py-3">
         <Container>
-          <Route path="/" component={Home} exact />
+          <Route path="/login" component={LoginScreen} />
           <Route path="/productos/:id" component={ProductScreen} />
           <Route path="/cesta/:id?" component={CestaScreen} />
+          <Route path="/" component={Home} exact />
         </Container>
       </main>
       <Footer />

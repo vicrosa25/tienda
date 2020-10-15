@@ -20,7 +20,7 @@ const cestaItemsFromStorage = localStorage.getItem("cestaItems")
   : [];
 
 const usuarioInfoFromStorage = localStorage.getItem("usuarioInfo")
-  ? JSON.parse(localStorage.getItem("usuarionInfo"))
+  ? JSON.parse(localStorage.getItem("usuarioInfo"))
   : null;
 
 const estadoInicial = {
