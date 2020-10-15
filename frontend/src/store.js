@@ -27,7 +27,7 @@ const estadoInicial = {
   cesta: {
     cestaItems: cestaItemsFromStorage,
   },
-  usuarioLogin: { userInfo: usuarioInfoFromStorage },
+  usuarioLogin: { usuarioInfo: usuarioInfoFromStorage },
 };
 const middleware = [thunk];
 
