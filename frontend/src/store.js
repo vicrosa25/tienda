@@ -6,21 +6,28 @@ import {
   productoDetalleReducer,
 } from "./reducers/productoReducers.js";
 import { cestaReducer } from "./reducers/cestaReducers";
+import { usuarioLoginReducer } from "./reducers/usuarioReducers";
 
 const reducer = combineReducers({
   productoLista: productoListaReducer,
   productoDetalle: productoDetalleReducer,
   cesta: cestaReducer,
+  usuarioLogin: usuarioLoginReducer,
 });
 
 const cestaItemsFromStorage = localStorage.getItem("cestaItems")
   ? JSON.parse(localStorage.getItem("cestaItems"))
   : [];
 
+const usuarioInfoFromStorage = localStorage.getItem("usuarioInfo")
+  ? JSON.parse(localStorage.getItem("usuarionInfo"))
+  : null;
+
 const estadoInicial = {
   cesta: {
     cestaItems: cestaItemsFromStorage,
   },
+  usuarioLogin: { userInfo: usuarioInfoFromStorage },
 };
 const middleware = [thunk];
 
