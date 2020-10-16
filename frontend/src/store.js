@@ -6,13 +6,17 @@ import {
   productoDetalleReducer,
 } from "./reducers/productoReducers.js";
 import { cestaReducer } from "./reducers/cestaReducers";
-import { usuarioLoginReducer } from "./reducers/usuarioReducers";
+import {
+  usuarioLoginReducer,
+  usuarioRegristrarReducer,
+} from "./reducers/usuarioReducers";
 
 const reducer = combineReducers({
   productoLista: productoListaReducer,
   productoDetalle: productoDetalleReducer,
   cesta: cestaReducer,
   usuarioLogin: usuarioLoginReducer,
+  usuarioRegistrar: usuarioRegristrarReducer,
 });
 
 const cestaItemsFromStorage = localStorage.getItem("cestaItems")
