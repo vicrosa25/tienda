@@ -27,9 +27,14 @@ const usuarioInfoFromStorage = localStorage.getItem("usuarioInfo")
   ? JSON.parse(localStorage.getItem("usuarioInfo"))
   : null;
 
+const direccionEnvioFromStorage = localStorage.getItem("direccionEnvio")
+  ? JSON.parse(localStorage.getItem("direccionEnvio "))
+  : {};
+
 const estadoInicial = {
   cesta: {
     cestaItems: cestaItemsFromStorage,
+    direccionEnvio: direccionEnvioFromStorage,
   },
   usuarioLogin: { usuarioInfo: usuarioInfoFromStorage },
 };

@@ -1,9 +1,13 @@
 import {
   CESTA_AGREGAR_ITEM,
   CESTA_ELIMINAR_ITEM,
+  CESTA_GUARDAR_DIRECCION_ENVIO,
 } from "../constantes/cestaConstantes";
 
-export const cestaReducer = (state = { cestaItems: [] }, action) => {
+export const cestaReducer = (
+  state = { cestaItems: [], direccionEnvio: {} },
+  action
+) => {
   switch (action.type) {
     case CESTA_AGREGAR_ITEM:
       const item = action.payload;
@@ -30,6 +34,12 @@ export const cestaReducer = (state = { cestaItems: [] }, action) => {
         cestaItems: state.cestaItems.filter(
           (producto) => producto.id !== action.payload
         ),
+      };
+
+    case CESTA_GUARDAR_DIRECCION_ENVIO:
+      return {
+        ...state,
+        direccionEnvio: action.payload,
       };
 
     default:

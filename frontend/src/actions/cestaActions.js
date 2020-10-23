@@ -2,6 +2,7 @@ import axios from "axios";
 import {
   CESTA_AGREGAR_ITEM,
   CESTA_ELIMINAR_ITEM,
+  CESTA_GUARDAR_DIRECCION_ENVIO,
 } from "../constantes/cestaConstantes";
 
 export const agregarItem = (id, cantidad) => async (dispatch, getState) => {
@@ -35,4 +36,13 @@ export const eliminarItem = (id) => (dispatch, getState) => {
     "cestaItems",
     JSON.stringify(getState().cesta.cestaItems)
   );
+};
+
+export const guardarDireccionEnvio = (data) => (dispatch) => {
+  dispatch({
+    type: CESTA_GUARDAR_DIRECCION_ENVIO,
+    payload: data,
+  });
+
+  localStorage.setItem("direccionEnvio", JSON.stringify(data));
 };

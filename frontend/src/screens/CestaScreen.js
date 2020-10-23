@@ -35,8 +35,8 @@ const CestaScreen = ({ match, location, history }) => {
     dispatch(eliminarItem(id));
   };
 
-  const pagarHandler = () => {
-    history.push("/login?redirect=shipping");
+  const tramitarHandler = () => {
+    history.push("/login?redirect=tramitar");
   };
 
   return (
@@ -108,7 +108,7 @@ const CestaScreen = ({ match, location, history }) => {
                 type="button"
                 className="btn-block"
                 disabled={cestaItems.length === 0}
-                onClick={pagarHandler}
+                onClick={tramitarHandler}
               >
                 {t("cartScreen.checkout")}
               </Button>
