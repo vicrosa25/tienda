@@ -3,6 +3,7 @@ import {
   CESTA_AGREGAR_ITEM,
   CESTA_ELIMINAR_ITEM,
   CESTA_GUARDAR_DIRECCION_ENVIO,
+  CESTA_GUARDAR_METODO_PAGO,
 } from "../constantes/cestaConstantes";
 
 export const agregarItem = (id, cantidad) => async (dispatch, getState) => {
@@ -43,6 +44,13 @@ export const guardarDireccionEnvio = (data) => (dispatch) => {
     type: CESTA_GUARDAR_DIRECCION_ENVIO,
     payload: data,
   });
-
   localStorage.setItem("direccionEnvio", JSON.stringify(data));
+};
+
+export const guardarMetodoPago = (data) => (dispatch) => {
+  dispatch({
+    type: CESTA_GUARDAR_METODO_PAGO,
+    payload: data,
+  });
+  localStorage.setItem("metodoPago", JSON.stringify(data));
 };

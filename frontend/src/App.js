@@ -10,6 +10,7 @@ import CestaScreen from "./screens/CestaScreen";
 import LoginScreen from "./screens/LoginScreen";
 import RegistrarScreen from "./screens/RegistrarScreen";
 import TramitarScreen from "./screens/TramitarScreen";
+import PagoScreen from "./screens/PagoScreen";
 
 import "./App.css";
 
@@ -21,6 +22,7 @@ function App() {
         <Container>
           <Route path="/login" component={LoginScreen} />
           <Route path="/tramitar" component={TramitarScreen} />
+          <Route path="/pago" component={PagoScreen} />
           <Route path="/registrar" component={RegistrarScreen} />
           <Route path="/productos/:id" component={ProductScreen} />
           <Route path="/cesta/:id?" component={CestaScreen} />

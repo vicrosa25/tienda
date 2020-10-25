@@ -28,7 +28,7 @@ const usuarioInfoFromStorage = localStorage.getItem("usuarioInfo")
   : null;
 
 const direccionEnvioFromStorage = localStorage.getItem("direccionEnvio")
-  ? JSON.parse(localStorage.getItem("direccionEnvio "))
+  ? JSON.parse(localStorage.getItem("direccionEnvio"))
   : {};
 
 const estadoInicial = {

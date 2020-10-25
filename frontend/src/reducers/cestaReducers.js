@@ -2,6 +2,7 @@ import {
   CESTA_AGREGAR_ITEM,
   CESTA_ELIMINAR_ITEM,
   CESTA_GUARDAR_DIRECCION_ENVIO,
+  CESTA_GUARDAR_METODO_PAGO,
 } from "../constantes/cestaConstantes";
 
 export const cestaReducer = (
@@ -40,6 +41,12 @@ export const cestaReducer = (
       return {
         ...state,
         direccionEnvio: action.payload,
+      };
+
+    case CESTA_GUARDAR_METODO_PAGO:
+      return {
+        ...state,
+        metodoPago: action.payload,
       };
 
     default:
