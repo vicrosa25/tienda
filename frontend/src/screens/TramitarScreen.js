@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import FormContainer from "../components/FormContainer";
+import CompruebaPasos from '../components/CompruebaPasos';
 import { guardarDireccionEnvio } from "../actions/cestaActions";
 
 const TramitarScreen = ({ history }) => {
@@ -23,6 +24,7 @@ const TramitarScreen = ({ history }) => {
 
   return (
     <FormContainer>
+      <CompruebaPasos paso1 paso2 />
       <h1>Shipping</h1>
       <Form onSubmit={submitHandler}>
         {/* Direccion */}
@@ -36,7 +38,7 @@ const TramitarScreen = ({ history }) => {
             onChange={(e) => setDireccion(e.target.value)}
           ></Form.Control>
         </Form.Group>
-
+        
         {/* Ciudad */}
         <Form.Group controlId="ciudad">
           <Form.Label>City</Form.Label>
