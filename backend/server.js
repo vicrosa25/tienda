@@ -5,6 +5,7 @@ import colors from "colors";
 import conectaDB from "./config/db.js";
 import productoRoutes from "./routes/productoRoutes.js";
 import usuarioRoutes from "./routes/usuarioRoutes.js";
+import pedidoRoutes from "./routes/pedidoRoute.js";
 import { notFound, errorHandler } from "./midleware/errores.js";
 
 dotenv.config();
@@ -25,6 +26,7 @@ app.get("/", (req, res) => {
 // Rutas
 app.use("/api/productos", productoRoutes);
 app.use("/api/usuarios", usuarioRoutes);
+app.use("/api/pedidos", pedidoRoutes);
 
 // Errores
 app.use(notFound);

@@ -27,7 +27,7 @@ const RealizarPedidoScreen = () => {
   ).toFixed(2);
 
   const realizarPedidoHandler = () => {
-    console.log("oreder");
+    console.log("pedido");
   };
 
   return (

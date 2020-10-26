@@ -1,15 +1,15 @@
 import mongoose from "mongoose";
 
-const ordenCompraEsquema = mongoose.Schema(
+const pedidoEsquema = mongoose.Schema(
   {
     usuario: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: "Usuario",
     },
-    ordenItems: [
+    pedidoItems: [
       {
-        name: { type: String, required: true },
+        nombre: { type: String, required: true },
         cantidad: { type: Number, required: true },
         imagen: { type: String, required: true },
         precio: { type: Number, required: true },
@@ -41,7 +41,7 @@ const ordenCompraEsquema = mongoose.Schema(
       required: true,
       default: 0.0,
     },
-    precioEnvio: {
+    gastosEnvio: {
       type: Number,
       required: true,
       default: 0.0,
@@ -73,6 +73,6 @@ const ordenCompraEsquema = mongoose.Schema(
   }
 );
 
-const OrdenCompra = mongoose.model("OrdenCompra", ordenCompraEsquema);
+const Pedido = mongoose.model("Pedido", pedidoEsquema);
 
-export default OrdenCompra;
+export default Pedido;
