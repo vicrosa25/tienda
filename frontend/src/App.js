@@ -11,6 +11,7 @@ import LoginScreen from "./screens/LoginScreen";
 import RegistrarScreen from "./screens/RegistrarScreen";
 import TramitarScreen from "./screens/TramitarScreen";
 import PagoScreen from "./screens/PagoScreen";
+import RealizarPedidoScreen from "./screens/RealizarPedidoScreen";
 
 import "./App.css";
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/login" component={LoginScreen} />
           <Route path="/tramitar" component={TramitarScreen} />
           <Route path="/pago" component={PagoScreen} />
+          <Route path="/realizarpedido" component={RealizarPedidoScreen} />
           <Route path="/registrar" component={RegistrarScreen} />
           <Route path="/productos/:id" component={ProductScreen} />
           <Route path="/cesta/:id?" component={CestaScreen} />

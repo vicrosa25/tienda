@@ -20,7 +20,7 @@ const PagoScreen = ({ history }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(guardarMetodoPago(metodoPago));
-    history.push("/placeorder");
+    history.push("/realizarpedido");
   };
 
   return (
