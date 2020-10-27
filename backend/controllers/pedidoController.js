@@ -31,9 +31,25 @@ const creaPedidoItems = asyncHandler(async (req, res) => {
     });
 
     const pedidoCreado = await pedido.save();
-
     res.status(201).json(pedidoCreado);
   }
 });
 
-export { creaPedidoItems };
+// @desc    Obtiene un pedido de la BD por su ID
+// @route   GET /api/pedidos/:id
+// @access  Private
+const pedidoPorId = asyncHandler(async (req, res) => {
+  const pedido = await Pedido.findById(req.params.id).populate(
+    "ususario",
+    "nombre email"
+  );
+
+  if (pedido) {
+    res.json(pedido);
+  } else {
+    res.status(404);
+    throw new Error("No se encuentra el pedido");
+  }
+});
+
+export { creaPedidoItems, pedidoPorId };
