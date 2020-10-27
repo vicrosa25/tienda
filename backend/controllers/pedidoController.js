@@ -4,7 +4,6 @@ import Pedido from "../modelos/pedidoModelo.js";
 // @desc    Crea un pedido
 // @route   POST /api/pedidos
 // @access  Private
-
 const creaPedidoItems = asyncHandler(async (req, res) => {
   const {
     pedidoItems,
@@ -16,13 +15,13 @@ const creaPedidoItems = asyncHandler(async (req, res) => {
     precioTotal,
   } = req.body;
 
-  if (orderItems && orderItems.length === 0) {
+  if (pedidoItems && pedidoItems.length === 0) {
     res.status(400);
     throw new Error("No order items");
   } else {
     const pedido = new Pedido({
       pedidoItems,
-      user: req.usuario._id,
+      usuario: req.usuario._id,
       direccionEnvio,
       metodoPago,
       precioItems,

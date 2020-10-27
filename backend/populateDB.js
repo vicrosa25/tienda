@@ -6,7 +6,7 @@ import usuarios from "./data/usuarios.js";
 import productos from "./data/productos.js";
 import Usuario from "./modelos/usuarioModelo.js";
 import Producto from "./modelos/productoModelo.js";
-import OrdenCompra from "./modelos/ordenCompraModelo.js";
+import Pedido from "./modelos/pedidoModelo.js";
 import conectaDB from "./config/db.js";
 
 dotenv.config();
@@ -17,7 +17,7 @@ const importarDatos = async () => {
   try {
     await Usuario.deleteMany();
     await Producto.deleteMany();
-    await OrdenCompra.deleteMany();
+    await Pedido.deleteMany();
 
     const usuariosCreados = await Usuario.insertMany(usuarios);
 
@@ -41,7 +41,7 @@ const borrarDatos = async () => {
   try {
     await Usuario.deleteMany();
     await Producto.deleteMany();
-    await OrdenCompra.deleteMany();
+    await Pedido.deleteMany();
 
     console.log("Datos borrados de la BD".green.inverse);
     process.exit();

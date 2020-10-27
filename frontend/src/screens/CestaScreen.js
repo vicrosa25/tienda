@@ -51,20 +51,24 @@ const CestaScreen = ({ match, location, history }) => {
         ) : (
           <ListGroup variant="flush">
             {cestaItems.map((item) => (
-              <ListGroup.Item key={item.id}>
+              <ListGroup.Item key={item.producto}>
                 <Row>
                   <Col md={2}>
                     <Image src={item.imagen} alt={item.numbre} fluid rounded />
                   </Col>
                   <Col md={3}>
-                    <Link to={`/productos/${item.id}`}>{item.nombre}</Link>
+                    <Link to={`/productos/${item.producto}`}>
+                      {item.nombre}
+                    </Link>
                   </Col>
                   <Col md={2}>
                     <Form.Control
                       as="select"
                       value={item.cantidad}
                       onChange={(e) =>
-                        dispatch(agregarItem(item.id, Number(e.target.value)))
+                        dispatch(
+                          agregarItem(item.producto, Number(e.target.value))
+                        )
                       }
                     >
                       {[...Array(item.numEnAlmacen).keys()].map((num) => (
@@ -78,7 +82,7 @@ const CestaScreen = ({ match, location, history }) => {
                     <Button
                       type="button"
                       variant="light"
-                      onClick={() => eliminarDeLaCestaHandler(item.id)}
+                      onClick={() => eliminarDeLaCestaHandler(item.producto)}
                     >
                       <i className="fas fa-trash"></i>
                     </Button>

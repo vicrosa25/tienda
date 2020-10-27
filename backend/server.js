@@ -5,7 +5,7 @@ import colors from "colors";
 import conectaDB from "./config/db.js";
 import productoRoutes from "./routes/productoRoutes.js";
 import usuarioRoutes from "./routes/usuarioRoutes.js";
-import pedidoRoutes from "./routes/pedidoRoute.js";
+import pedidoRoutes from "./routes/pedidoRoutes.js";
 import { notFound, errorHandler } from "./midleware/errores.js";
 
 dotenv.config();

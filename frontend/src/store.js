@@ -9,7 +9,11 @@ import { cestaReducer } from "./reducers/cestaReducers";
 import {
   usuarioLoginReducer,
   usuarioRegristrarReducer,
+  usuarioDetallesReducer,
+  usuarioActualizarPerfilReducer,
 } from "./reducers/usuarioReducers";
+
+import { crearPedidoReducer } from "./reducers/pedidoReducers";
 
 const reducer = combineReducers({
   productoLista: productoListaReducer,
@@ -17,6 +21,9 @@ const reducer = combineReducers({
   cesta: cestaReducer,
   usuarioLogin: usuarioLoginReducer,
   usuarioRegistrar: usuarioRegristrarReducer,
+  usuarioDetalles: usuarioDetallesReducer,
+  usuarioActualizarPerfil: usuarioActualizarPerfilReducer,
+  crearPedido: crearPedidoReducer,
 });
 
 const cestaItemsFromStorage = localStorage.getItem("cestaItems")

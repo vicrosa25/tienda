@@ -12,7 +12,7 @@ export const agregarItem = (id, cantidad) => async (dispatch, getState) => {
   dispatch({
     type: CESTA_AGREGAR_ITEM,
     payload: {
-      id: data._id,
+      producto: data._id,
       nombre: data.nombre,
       imagen: data.imagen,
       precio: data.precio,

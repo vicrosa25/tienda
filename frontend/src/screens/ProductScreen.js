@@ -22,6 +22,7 @@ const ProductScreen = ({ history, match }) => {
   const [t] = useTranslation();
   const [cantidad, setCantidad] = useState(1);
   const dispatch = useDispatch();
+
   const productoDetalle = useSelector((state) => state.productoDetalle);
   const { loading, error, producto } = productoDetalle;
 

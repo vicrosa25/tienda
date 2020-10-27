@@ -33,9 +33,9 @@ const RegistrarScreen = ({ location, history }) => {
 
     if (password !== confirmarPassword) {
       setMensaje("La contraseña no coincide");
+    } else {
+      dispatch(registrar(nombre, email, password));
     }
-
-    dispatch(registrar(nombre, email, password));
   };
   return (
     <FormContainer>

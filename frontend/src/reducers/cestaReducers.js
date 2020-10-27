@@ -13,13 +13,15 @@ export const cestaReducer = (
     case CESTA_AGREGAR_ITEM:
       const item = action.payload;
 
-      const existeItem = state.cestaItems.find((x) => x.id === item.id);
+      const existeItem = state.cestaItems.find(
+        (x) => x.producto === item.producto
+      );
 
       if (existeItem) {
         return {
           ...state,
           cestaItems: state.cestaItems.map((x) =>
-            x.id === item.id ? item : x
+            x.producto === item.producto ? item : x
           ),
         };
       } else {
@@ -33,7 +35,7 @@ export const cestaReducer = (
       return {
         ...state,
         cestaItems: state.cestaItems.filter(
-          (producto) => producto.id !== action.payload
+          (x) => x.producto !== action.payload
         ),
       };
 

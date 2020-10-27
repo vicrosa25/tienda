@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Row, Col, ListGroup, Image, Card } from "react-bootstrap";
 import Mensaje from "../components/Mensaje";
 import CompruebaPasos from "../components/CompruebaPasos";
+import { crearPedido } from "../actions/pedidoActions";
 
-const RealizarPedidoScreen = () => {
+const RealizarPedidoScreen = ({ history }) => {
+  // Hooks from redux
+  const dispatch = useDispatch();
   const cesta = useSelector((state) => state.cesta);
 
   // Para que todos los precios tengan dos decimales
@@ -13,7 +16,7 @@ const RealizarPedidoScreen = () => {
     return (Math.round(num * 100) / 100).toFixed(2);
   };
 
-  // Calcula los precios, impuestos, gastos de envio, precio total
+  // Calculaprecio, impuestos, gastos de envio, precio total
   cesta.precioItems = decimales(
     cesta.cestaItems.reduce((acc, item) => acc + item.precio * item.cantidad, 0)
   );
@@ -26,8 +29,28 @@ const RealizarPedidoScreen = () => {
     Number(cesta.impuestos)
   ).toFixed(2);
 
+  const pedidoCreado = useSelector((state) => state.crearPedido);
+  const { pedido, exito, error } = pedidoCreado;
+
+  useEffect(() => {
+    if (exito) {
+      history.push(`/pedido/${pedido._id}`);
+    }
+    // eslint-disable-next-line
+  }, [history, exito]);
+
   const realizarPedidoHandler = () => {
-    console.log("pedido");
+    dispatch(
+      crearPedido({
+        pedidoItems: cesta.cestaItems,
+        direccionEnvio: cesta.direccionEnvio,
+        metodoPago: cesta.metodoPago,
+        precioItems: cesta.precioItems,
+        gastosEnvio: cesta.gastosEnvio,
+        impuestos: cesta.impuestos,
+        precioTotal: cesta.precioTotal,
+      })
+    );
   };
 
   return (
@@ -114,6 +137,9 @@ const RealizarPedidoScreen = () => {
                   <Col>Total</Col>
                   <Col>{cesta.precioTotal} €</Col>
                 </Row>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                {error && <Mensaje variant="danger">{error}</Mensaje>}
               </ListGroup.Item>
               <ListGroup.Item>
                 <Button
